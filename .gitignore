@@ -34,5 +34,7 @@
 # Mac Os stuff
 *.DS_Store
 
-# Visual studio ignore
+# IDE stuff
 .vs/*
+.idea/*
+cmake-build-debug/*
