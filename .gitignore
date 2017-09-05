@@ -33,3 +33,6 @@
 
 # Mac Os stuff
 *.DS_Store
+
+# Visual studio ignore
+.vs/*
