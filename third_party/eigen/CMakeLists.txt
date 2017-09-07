@@ -478,7 +478,3 @@ install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/UseEigen3.cmake
                 ${CMAKE_CURRENT_BINARY_DIR}/Eigen3Config.cmake
                 ${CMAKE_CURRENT_BINARY_DIR}/Eigen3ConfigVersion.cmake
           DESTINATION ${CMAKEPACKAGE_INSTALL_DIR} )
-
-# Add uninstall target
-add_custom_target ( uninstall
-    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/EigenUninstall.cmake)
