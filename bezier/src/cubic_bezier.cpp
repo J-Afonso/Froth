@@ -11,11 +11,10 @@ namespace bezier {
 
   Vector3f CubicBezier::Interpolate(const float t) {
     float inverted_t = (1 - t);
-    Vector3f p0 = pow(inverted_t, 3) * _point_a;
-    Vector3f p1 = 3 * pow(inverted_t, 2) * t * _handle_a;
-    Vector3f p2 = 3 * inverted_t * pow(t, 2) * _handle_b;
-    Vector3f p3 = pow(t, 3) * _point_b;
-    return p0 + p1 + p2 + p3;
+    return pow(inverted_t, 3) * _point_a 
+      + 3 * pow(inverted_t, 2) * t * _handle_a
+      + 3 * inverted_t * pow(t, 2) * _handle_b 
+      + pow(t, 3) * _point_b;
   }
 
 } // namespace bezier
