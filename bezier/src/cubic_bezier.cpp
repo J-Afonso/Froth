@@ -1,5 +1,4 @@
 #include "cubic_bezier.h"
-
 #include <math.h> 
 
 namespace bezier {
