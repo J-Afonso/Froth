@@ -9,4 +9,4 @@ endif()
 
 add_executable(executioner src/executioner.cpp)
 
-target_link_libraries (executioner LINK_PUBLIC GLAD glfw)
+target_link_libraries (executioner LINK_PUBLIC GLAD glfw Bezier)

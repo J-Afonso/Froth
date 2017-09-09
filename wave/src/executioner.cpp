@@ -1,18 +1,8 @@
 #include <glad.h>
 #include <GLFW/glfw3.h>
-
-
+#include <cubic_bezier.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-static const struct
-{
-	float x, y;
-} vertices[2] =
-{
-	{ -0.9f, -0.9f},
-	{ 0.9f,  0.9f }
-};
 
 static const char* vertex_shader_text =
 	"attribute vec2 vPos;\n"
@@ -35,6 +25,8 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
+
+constexpr int kNumVertices = 1000;
 
 int main(void)
 {
@@ -63,11 +55,10 @@ int main(void)
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
 
-	// NOTE: OpenGL error checks have been omitted for brevity
+  bezier::CubicBezier cubic_bezier(Vector3f(-1, -1, 0), Vector3f(1, 1, 0), Vector3f(0, -1, 0), Vector3f(0, 1, 0));
 
 	glGenBuffers(1, &vertex_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	vertex_shader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
@@ -93,14 +84,32 @@ int main(void)
 
 	glViewport(0, 0, width, height);
 
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+  glEnable(GL_LINE_SMOOTH);
+  glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+
 	while (!glfwWindowShouldClose(window))
 	{		
 		glClearColor(0, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(program);
+
+    float vertices[kNumVertices][2];
+    for (int i = 0; i < kNumVertices; ++i) {
+      const float t = i / (float)kNumVertices;
+      Eigen::Vector3f pos = cubic_bezier.Interpolate(t);
+      vertices[i][0] = pos.x();
+      vertices[i][1] = pos.y();
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+
 		glLineWidth(1);
-		glDrawArrays(GL_LINE_STRIP, 0, 2);
+		glDrawArrays(GL_LINE_STRIP, 0, kNumVertices);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
