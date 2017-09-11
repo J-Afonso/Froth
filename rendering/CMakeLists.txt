@@ -7,6 +7,6 @@ if (MSVC)
                           LINK_FLAGS "/ENTRY:mainCRTStartup")
 endif()
 
-add_executable(executioner src/executioner.cpp)
+add_executable(executioner src/executioner.cpp ../bezier/src/cubic_bezier_renderer.cpp)
 
 target_link_libraries (executioner LINK_PUBLIC GLAD glfw Bezier)

@@ -9,7 +9,7 @@ namespace bezier {
 	  public:
       CubicBezier(const Vector3f& point_a, const Vector3f& point_b,
         const Vector3f& handle_a, const Vector3f& handle_b);		  
-      Vector3f Interpolate(const float t);
+      Vector3f Interpolate(const float t) const;
 	  private:
 		  Vector3f _point_a;
 		  Vector3f _point_b;
