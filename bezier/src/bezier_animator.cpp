@@ -1,5 +1,4 @@
 #include "bezier_animator.h"
-#include "..\include\bezier_animator.h"
 
 CubicBezier bezier::BezierAnimator::get() const
 {
