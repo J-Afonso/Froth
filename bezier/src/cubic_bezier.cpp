@@ -15,5 +15,37 @@ namespace bezier {
       + pow(t, 3) * _point_b;
   }
 
+    Vector3f const &CubicBezier::pointA() const {
+        return _point_a;
+    }
+
+    void CubicBezier::pointA(Vector3f const &point_a) {
+        _point_a = point_a;
+    }
+
+    Vector3f const &CubicBezier::pointB() const {
+        return _point_b;
+    }
+
+    void CubicBezier::pointB(Vector3f const &point_b) {
+        _point_b = point_b;
+    }
+
+    Vector3f const &CubicBezier::handleA() const {
+        return _handle_a;
+    }
+
+    void CubicBezier::handleA(Vector3f const &handle_a) {
+        _handle_a = handle_a;
+    }
+
+    Vector3f const &CubicBezier::handleB() const {
+        return _handle_b;
+    }
+
+    void CubicBezier::handleB(Vector3f const &handle_b) {
+        _handle_b = handle_b;
+    }
+
 } // namespace bezier
 

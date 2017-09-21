@@ -23,11 +23,8 @@ TEST(TEST_BEZIER_ANIMATOR, test_bezier_animator) {
 
   CubicBezier initial_bezier = bezier_animator.get();
 
-  EXPECT_EIGEN_EQ(Vector3f(-1, 0, 0), initial_bezier.Interpolate(0), kEigenTolerance);
-  EXPECT_EIGEN_EQ(Vector3f(1, 0, 0), initial_bezier.Interpolate(1), kEigenTolerance);
-
-  EXPECT_EIGEN_EQ(Vector3f(-1, -1, 0), bezier_animator.get().Interpolate(0), kEigenTolerance);
-  EXPECT_EIGEN_EQ(Vector3f(1, 1, 0), bezier_animator.get().Interpolate(1), kEigenTolerance);
+  EXPECT_EIGEN_EQ(Vector3f(-1,  -1, 0), initial_bezier.Interpolate(0), kEigenTolerance);
+  EXPECT_EIGEN_EQ(Vector3f(1, 1, 0), initial_bezier.Interpolate(1), kEigenTolerance);
 
   bezier_animator.tick(1000);
   CubicBezier half_bezier = bezier_animator.get();

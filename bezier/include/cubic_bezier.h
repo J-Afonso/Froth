@@ -14,11 +14,20 @@ namespace bezier {
         Vector3f const& pointA() const;
 	    void pointA(Vector3f const& point_a);
 
+        Vector3f const& pointB() const;
+        void pointB(Vector3f const& point_b);
+
+        Vector3f const& handleA() const;
+        void handleA(Vector3f const& handle_a);
+
+        Vector3f const& handleB() const;
+        void handleB(Vector3f const& handle_a);
+
     private:
-        const Vector3f _point_a;
-        const Vector3f _point_b;
-        const Vector3f _handle_a;
-        const Vector3f _handle_b;
+        Vector3f _point_a;
+        Vector3f _point_b;
+        Vector3f _handle_a;
+        Vector3f _handle_b;
   };
 } // namespace bezier
 #endif //BEZIER_CUBIC_BEZIER_H

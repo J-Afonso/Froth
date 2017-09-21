@@ -11,9 +11,11 @@ void bezier::BezierAnimator::tick(const float time_since_last_frame) {
     // Cap the time to the duration.
     _current_time = _duration;
   } else {
-    // Get relative time;
+    // Linear Interpolation: F(x) = A + t (B - A)
     float relative_time = _current_time / _duration;
-    //Vector3f lula = _start.getPointA();
-    //_result.setPointA(_start.getPointA())
+    _current.handleA(_start.handleA() + relative_time * (_end.handleA() - _start.handleA()));
+    _current.handleB(_start.handleB() + relative_time * (_end.handleB() - _start.handleB()));
+    _current.pointA(_start.pointA() + relative_time * (_end.pointA() - _start.pointA()));
+    _current.pointB(_start.pointB() + relative_time * (_end.pointB() - _start.pointB()));
   }
 }
