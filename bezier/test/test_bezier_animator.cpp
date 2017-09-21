@@ -30,13 +30,17 @@ TEST(TEST_BEZIER_ANIMATOR, test_bezier_animator) {
   CubicBezier half_bezier = bezier_animator.get();
 
   EXPECT_EIGEN_EQ(Vector3f(-1, 0, 0), half_bezier.Interpolate(0), kEigenTolerance);
-  EXPECT_EIGEN_EQ(Vector3f(1, 0, 0), half_bezier.Interpolate(1), kEigenTolerance);  
-  //TODO(j-afonso): Check mid handles too.
+  EXPECT_EIGEN_EQ(Vector3f(1, 0, 0), half_bezier.Interpolate(1), kEigenTolerance);
+
+  EXPECT_EIGEN_EQ(Vector3f(-0.5, -0.5, 0), half_bezier.handleA(), kEigenTolerance);
+  EXPECT_EIGEN_EQ(Vector3f(0.5, 0.5, 0), half_bezier.handleB(), kEigenTolerance);
 
   bezier_animator.tick(1000);
   CubicBezier final_bezier = bezier_animator.get();
 
   EXPECT_EIGEN_EQ(Vector3f(-1, 1, 0), final_bezier.Interpolate(0), kEigenTolerance);
   EXPECT_EIGEN_EQ(Vector3f(1, -1, 0), final_bezier.Interpolate(1), kEigenTolerance);
-  //TODO(j-afonso): Check mid handles too.
+
+  EXPECT_EIGEN_EQ(Vector3f(-1, 0, 0), final_bezier.handleA(), kEigenTolerance);
+  EXPECT_EIGEN_EQ(Vector3f(1, 0, 0),  final_bezier.handleB(), kEigenTolerance);
 }
