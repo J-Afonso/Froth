@@ -1,5 +1,13 @@
-set(SOURCE_FILES src/cubic_bezier.cpp src/cubic_bezier_renderer.cpp src/bezier_animator.cpp)
-set(HEADER_FILES include/cubic_bezier.h include/cubic_bezier_renderer.h include/bezier_animator.h)
+set(SOURCE_FILES
+        src/cubic_bezier.cpp
+        src/cubic_bezier_renderer.cpp
+        src/bezier_animator.cpp
+        src/bezier_path.cpp)
+
+set(HEADER_FILES include/cubic_bezier.h
+        include/cubic_bezier_renderer.h
+        include/bezier_animator.h
+        include/bezier_path.h)
 
 add_library(Bezier ${SOURCE_FILES} ${HEADER_FILES})
 target_include_directories (Bezier PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -12,3 +20,7 @@ target_link_libraries (cubic_bezier_test gtest Bezier)
 add_executable(bezier_animator_test test/test_bezier_animator.cpp)
 add_test(bezier_animator_test bezier_animator_test)
 target_link_libraries (bezier_animator_test gtest Bezier)
+
+add_executable(bezier_path_test test/test_bezier_path.cpp)
+add_test(bezier_path_test bezier_path_test)
+target_link_libraries (bezier_path_test gtest Bezier)
