@@ -16,7 +16,10 @@ namespace bezier {
     public:
       void Add(const BezierPoint &point);
       Vector3f Get(const float);
-    private:
+      void Clear();
+      std::vector<BezierPoint> Points() const;
+
+  private:
       std::vector<BezierPoint> _points;
       std::vector<CubicBezier> _bezier_path;
       bool _dirty = false;

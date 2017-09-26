@@ -31,3 +31,12 @@ Vector3f bezier::BezierPath::Get(const float t) {
 
   return _bezier_path.at(bezier_index).Interpolate(relative_progress);
 }
+
+void bezier::BezierPath::Clear() {
+  _points.clear();
+  _dirty = true;
+}
+
+std::vector<bezier::BezierPoint> bezier::BezierPath::Points() const {
+  return _points;
+}
