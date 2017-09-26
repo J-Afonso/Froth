@@ -13,6 +13,10 @@ add_library(Bezier ${SOURCE_FILES} ${HEADER_FILES})
 target_include_directories (Bezier PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries (Bezier LINK_PUBLIC GLAD eigen)
 
+add_executable(bezier_path_test test/test_bezier_path.cpp)
+add_test(bezier_path_test bezier_path_test)
+target_link_libraries (bezier_path_test gtest Bezier)
+
 add_executable(cubic_bezier_test test/test_cubic_bezier.cpp)
 add_test(cubic_bezier_test cubic_bezier_test)
 target_link_libraries (cubic_bezier_test gtest Bezier)
@@ -20,7 +24,3 @@ target_link_libraries (cubic_bezier_test gtest Bezier)
 add_executable(bezier_animator_test test/test_bezier_animator.cpp)
 add_test(bezier_animator_test bezier_animator_test)
 target_link_libraries (bezier_animator_test gtest Bezier)
-
-add_executable(bezier_path_test test/test_bezier_path.cpp)
-add_test(bezier_path_test bezier_path_test)
-target_link_libraries (bezier_path_test gtest Bezier)

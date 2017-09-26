@@ -6,6 +6,8 @@ void bezier::BezierPath::Add(const bezier::BezierPoint &point) {
 }
 
 Vector3f bezier::BezierPath::Get(const float t) {
+  //TODO(j-afonso): Add range checks.
+  //CHECK_RANGE(t, 0, 1);
   if(_dirty){
     // Recalculate the path.
     _bezier_path.clear();
@@ -22,9 +24,9 @@ Vector3f bezier::BezierPath::Get(const float t) {
     _dirty = false;
   }
 
+  double relative_duration = t * (double)_bezier_path.size();
+  int bezier_index = std::min((int)relative_duration, _bezier_path.size() - 1);
+  double relative_progress = relative_duration - bezier_index;   
 
-
-
-
-  return Eigen::Vector3f();
+  return _bezier_path.at(bezier_index).Interpolate(relative_progress);
 }
