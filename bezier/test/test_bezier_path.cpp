@@ -32,10 +32,6 @@ TEST(TEST_BEZIER_PATH, test_bezier_path) {
     point_3.point = Vector3f(1, -1, 0);
     point_3.handle_a = Vector3f(0.8, -1, 0);
     path.Add(point_3);
-    
-  Eigen::Vector3f lula = path.Get(0);
-  Eigen::Vector3f lula1 = path.Get(0.5);
-  Eigen::Vector3f lula2 = path.Get(1.0);
 
     EXPECT_EIGEN_EQ(point_1.point, path.Get(0), kEigenTolerance);
     EXPECT_EIGEN_EQ(point_2.point, path.Get(0.5), kEigenTolerance);

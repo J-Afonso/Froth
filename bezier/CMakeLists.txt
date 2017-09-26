@@ -1,11 +1,11 @@
 set(SOURCE_FILES
         src/cubic_bezier.cpp
-        src/cubic_bezier_renderer.cpp
+        src/bezier_path_renderer.cpp
         src/bezier_animator.cpp
         src/bezier_path.cpp)
 
 set(HEADER_FILES include/cubic_bezier.h
-        include/cubic_bezier_renderer.h
+        include/bezier_path_renderer.h
         include/bezier_animator.h
         include/bezier_path.h)
 

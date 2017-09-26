@@ -1,14 +1,14 @@
 #ifndef BEZIER_CUBIC_BEZIER_RENDERER_H
 #define BEZIER_CUBIC_BEZIER_RENDERER_H
 
-#include <cubic_bezier.h>
+#include <bezier_path.h>
 #include <glad.h>
 
 namespace bezier {
-    class CubicBezierRenderer {
+    class BezierPathRenderer {
         public:
             void setup();
-            void draw(const bezier::CubicBezier&);
+            void draw(bezier::BezierPath*);
 
     private:
         GLuint _vertex_buffer;

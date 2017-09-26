@@ -1,4 +1,4 @@
-#include "cubic_bezier_renderer.h"
+#include "bezier_path_renderer.h"
 
 namespace bezier {
 
@@ -15,7 +15,7 @@ namespace bezier {
 
     constexpr int kNumVertices = 1000;
 
-    void CubicBezierRenderer::setup() {
+    void BezierPathRenderer::setup() {
         GLuint vertex_shader, fragment_shader;
         GLint vpos_location;
 
@@ -47,13 +47,14 @@ namespace bezier {
         glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
     }
 
-    void CubicBezierRenderer::draw(const bezier::CubicBezier& cubic_bezier){
+    void BezierPathRenderer::draw(bezier::BezierPath* bezier_path){
+        // CHECK_NOT_NULL(bezier_path);
         glUseProgram(_program);
 
         float vertices[kNumVertices][2];
         for (int i = 0; i < kNumVertices; ++i) {
             const float t = i / (float)kNumVertices;
-            Eigen::Vector3f pos = cubic_bezier.Interpolate(t);
+            Eigen::Vector3f pos = bezier_path->Get(t);
             vertices[i][0] = pos[0];
             vertices[i][1] = pos[1];
         }
