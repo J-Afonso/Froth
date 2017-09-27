@@ -9,9 +9,9 @@ using bezier::BezierPath;
 namespace bezier {
   class BezierPathAnimator {
   public:
-    BezierPathAnimator(const BezierPath &start, const BezierPath &end, const float duration);
+    BezierPathAnimator(const BezierPath &start, const BezierPath &end, float duration);
     BezierPath Get() const;
-    void Tick(const float);
+    void Tick(float);
   private:
     const BezierPath _start;
     const BezierPath _end;

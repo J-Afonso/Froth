@@ -15,7 +15,7 @@ namespace bezier {
   class BezierPath {
     public:
       void Add(const BezierPoint &point);
-      Vector3f Get(const float);
+      Vector3f Get(float);
       void Clear();
       std::vector<BezierPoint> Points() const;
 

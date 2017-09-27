@@ -16,18 +16,17 @@ namespace bezier {
     constexpr int kNumVertices = 1000;
 
     void BezierPathRenderer::setup() {
-        GLuint vertex_shader, fragment_shader;
-        GLint vpos_location;
+        GLuint vertex_shader, fragment_shader, vpos_location;
 
         glGenBuffers(1, &_vertex_buffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vertex_buffer);
 
         vertex_shader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertex_shader, 1, &kVertexShader, NULL);
+        glShaderSource(vertex_shader, 1, &kVertexShader, nullptr);
         glCompileShader(vertex_shader);
 
         fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragment_shader, 1, &kFragmentShader, NULL);
+        glShaderSource(fragment_shader, 1, &kFragmentShader, nullptr);
         glCompileShader(fragment_shader);
 
         _program = glCreateProgram();
@@ -38,7 +37,7 @@ namespace bezier {
         vpos_location = glGetAttribLocation(_program, "vPos");
 
         glEnableVertexAttribArray(vpos_location);
-        glVertexAttribPointer(vpos_location, 2, GL_FLOAT, GL_FALSE, 0, (void*) 0);
+        glVertexAttribPointer(vpos_location, 2, GL_FLOAT, GL_FALSE, 0, (void*) nullptr);
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

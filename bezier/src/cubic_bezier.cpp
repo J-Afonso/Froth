@@ -7,7 +7,7 @@ namespace bezier {
     _point_b(point_b), _handle_a (handle_a), _handle_b(handle_b){
   }
 
-  Vector3f CubicBezier::Interpolate(const float t) const{
+  Vector3f CubicBezier::Interpolate(float t) const{
     float inverted_t = (1 - t);
     return pow(inverted_t, 3) * _point_a 
       + 3 * pow(inverted_t, 2) * t * _handle_a

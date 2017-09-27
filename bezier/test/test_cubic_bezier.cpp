@@ -5,7 +5,7 @@ using Eigen::Vector3f;
 
 constexpr double kEigenTolerance = 1e-4;
 
-#define EXPECT_EIGEN_EQ(x, n, c) EXPECT_TRUE( (x-n).norm() < c )
+#define EXPECT_EIGEN_EQ(x, n, c) EXPECT_TRUE( ((x)-(n)).norm() < (c) )
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);

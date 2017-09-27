@@ -1,7 +1,7 @@
 #include "bezier_path_animator.h"
 
 bezier::BezierPathAnimator::BezierPathAnimator(const BezierPath &start, const BezierPath &end,
-                                               const float duration) :
+                                               float duration) :
     _start(start), _end(end), _duration(duration), _current(start) {
   // TODO(j-afonso): CHECK_EQ(_start.Points().size(), _end.Points().size()
   // TODO(j-afonso): CHECK_MORE_THAN(_duration, 0)
@@ -12,7 +12,7 @@ BezierPath bezier::BezierPathAnimator::Get() const
   return _current;
 }
 
-void bezier::BezierPathAnimator::Tick(const float time_since_last_frame) {
+void bezier::BezierPathAnimator::Tick(float time_since_last_frame) {
   _current_time += time_since_last_frame;
   if (_current_time > _duration) {
     // Cap the time to the duration.

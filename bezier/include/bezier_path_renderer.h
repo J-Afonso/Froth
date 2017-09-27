@@ -12,7 +12,7 @@ namespace bezier {
 
     private:
         GLuint _vertex_buffer;
-        GLuint _program;
+        GLint _program;
     };
 } // namespace bezier
 #endif //BEZIER_CUBIC_BEZIER_RENDERER_H
