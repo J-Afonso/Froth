@@ -34,7 +34,7 @@ namespace bezier {
         glAttachShader(_program, fragment_shader);
         glLinkProgram(_program);
 
-        vpos_location = glGetAttribLocation(_program, "vPos");
+        vpos_location = static_cast<GLuint>(glGetAttribLocation(_program, "vPos"));
 
         glEnableVertexAttribArray(vpos_location);
         glVertexAttribPointer(vpos_location, 2, GL_FLOAT, GL_FALSE, 0, (void*) nullptr);
