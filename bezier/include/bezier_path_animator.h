@@ -17,7 +17,7 @@ namespace bezier {
     const BezierPath _end;
     BezierPath _current;
     const float _duration;
-    float _current_time;
+    float _current_time = 0;
   };
 } // namespace bezier
 #endif //BEZIER_PATH_ANIMATOR_H

@@ -22,7 +22,7 @@ void bezier::BezierPathAnimator::Tick(float time_since_last_frame) {
     // Linear Interpolation: F(x) = A + t (B - A)
     float relative_time = _current_time / _duration;
     _current.Clear();
-    for (int i=0; i<_start.Points().size(); ++i) {
+    for (uint16_t i=0; i < _start.Points().size(); ++i) {
       BezierPoint start = _start.Points()[i];
       BezierPoint end = _end.Points()[i];
 

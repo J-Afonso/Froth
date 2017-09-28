@@ -47,36 +47,36 @@ int main(void)
 
   BezierPoint point_1;
   point_1.point = Vector3f(-1, -1, 0);
-  point_1.handle_b = Vector3f(-0.4, -1, 0);
+  point_1.handle_b = Vector3f(-0.4f, -1, 0);
   start_path.Add(point_1);
 
   BezierPoint point_2;
   point_2.point = Vector3f(0, -1, 0);
-  point_2.handle_a = Vector3f(-0.3, -1, 0);
-  point_2.handle_b = Vector3f(0.3, -1, 0);
+  point_2.handle_a = Vector3f(-0.3f, -1, 0);
+  point_2.handle_b = Vector3f(0.3f, -1, 0);
   start_path.Add(point_2);
 
   BezierPoint point_3;
   point_3.point = Vector3f(1, -1, 0);
-  point_3.handle_a = Vector3f(0.4, -1, 0);
+  point_3.handle_a = Vector3f(0.4f, -1, 0);
   start_path.Add(point_3);
 
 	BezierPath end_path;
 
 	BezierPoint end_1;
   end_1.point = Vector3f(-1, -1, 0);
-  end_1.handle_b = Vector3f(-0.4, -1, 0);
+  end_1.handle_b = Vector3f(-0.4f, -1, 0);
   end_path.Add(end_1);
 
 	BezierPoint end_2;
   end_2.point = Vector3f(0, 1, 0);
-  end_2.handle_a = Vector3f(-0.3, 1, 0);
-  end_2.handle_b = Vector3f(0.3, 1, 0);
+  end_2.handle_a = Vector3f(-0.3f, 1, 0);
+  end_2.handle_b = Vector3f(0.3f, 1, 0);
   end_path.Add(end_2);
 
 	BezierPoint end_3;
   end_3.point = Vector3f(1, -1, 0);
-  end_3.handle_a = Vector3f(0.4, -1, 0);
+  end_3.handle_a = Vector3f(0.4f, -1, 0);
   end_path.Add(end_3);
 
 	int width, height;
