@@ -1,4 +1,5 @@
 #include "bezier_path.h"
+#include <glog/logging.h>
 
 void bezier::BezierPath::Add(const bezier::BezierPoint &point) {
   _points.push_back(point);
@@ -6,15 +7,14 @@ void bezier::BezierPath::Add(const bezier::BezierPoint &point) {
 }
 
 Vector3f bezier::BezierPath::Get(float t) {
-  //TODO(j-afonso): Add range checks.
-  //CHECK_RANGE(t, 0, 1);
+  CHECK_GE(t, 0);
+  CHECK_LE(t, 1);
   if (_dirty) {
     // Recalculate the path.
     _bezier_path.clear();
     for (int i = 1; i < _points.size(); ++i) {
       const BezierPoint previous_point = _points[i - 1];
       const BezierPoint point = _points[i];
-      // TODO(j-afonso): CHECK IF ALL THE HANDLES ARE FILLED UP.
       CubicBezier bezier(previous_point.point, point.point, previous_point.handle_b,
                          point.handle_a);
       _bezier_path.push_back(bezier);

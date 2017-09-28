@@ -1,10 +1,11 @@
 #include "bezier_path_animator.h"
+#include <glog/logging.h>
 
 bezier::BezierPathAnimator::BezierPathAnimator(const BezierPath &start, const BezierPath &end,
                                                float duration) :
-    _start(start), _end(end), _duration(duration), _current(start) {
-  // TODO(j-afonso): CHECK_EQ(_start.Points().size(), _end.Points().size()
-  // TODO(j-afonso): CHECK_MORE_THAN(_duration, 0)
+  _start(start), _end(end), _duration(duration), _current(start) {
+  CHECK_EQ(_start.Points().size(), _end.Points().size());
+  CHECK_GT(_duration, 0);
 };
 
 BezierPath bezier::BezierPathAnimator::Get() const

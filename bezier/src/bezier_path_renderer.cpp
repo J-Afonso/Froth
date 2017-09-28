@@ -1,4 +1,5 @@
 #include "bezier_path_renderer.h"
+#include <glog/logging.h>
 
 namespace bezier {
 
@@ -47,7 +48,8 @@ namespace bezier {
     }
 
     void BezierPathRenderer::draw(bezier::BezierPath* bezier_path){
-        // CHECK_NOT_NULL(bezier_path);
+        CHECK_NOTNULL(bezier_path);
+
         glUseProgram(_program);
 
         float vertices[kNumVertices][2];

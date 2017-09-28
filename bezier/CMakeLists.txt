@@ -19,5 +19,5 @@ add_executable(bezier_tests
         test/test_path_animator.cpp)
 
 add_test(bezier_tests bezier_tests)
-target_link_libraries (bezier_tests glog gtest gtest_main)
+target_link_libraries (bezier_tests gtest gtest_main glog)
 target_link_libraries (bezier_tests Bezier)

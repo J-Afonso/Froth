@@ -1,5 +1,6 @@
 add_subdirectory(glad)
 add_subdirectory(glfw)
 add_subdirectory(eigen)
+add_subdirectory(glog)
 set(gtest_force_shared_crt ON CACHE BOOL "Always use msvcrt.dll" FORCE)
 add_subdirectory(gtest)
