@@ -8,11 +8,6 @@ using bezier::BezierPoint;
 
 constexpr double kEigenTolerance = 1e-4;
 
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
-
 TEST(TEST_BEZIER_PATH, test_bezier_path) {
 
     BezierPath path;
