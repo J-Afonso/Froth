@@ -11,7 +11,7 @@ set(HEADER_FILES include/cubic_bezier.h
 
 add_library(Bezier ${SOURCE_FILES} ${HEADER_FILES})
 target_include_directories (Bezier PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries (Bezier LINK_PUBLIC GLAD eigen glog)
+target_link_libraries (Bezier LINK_PUBLIC glad eigen glog)
 
 add_executable(bezier_tests
         test/test_bezier_path.cpp
