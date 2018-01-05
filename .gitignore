@@ -38,3 +38,7 @@
 .vs/*
 .idea/*
 cmake-build-debug/*
+
+# Flash stuff
+*.swf
+wave_simulator/wave_motion-app.xml
