@@ -42,3 +42,5 @@ cmake-build-debug/*
 # Flash stuff
 *.swf
 wave_simulator/wave_motion-app.xml
+wave_simulator/bin-debug/
+wave_simulator/.settings/*
